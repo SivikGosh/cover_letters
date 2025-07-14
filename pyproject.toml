@@ -1,0 +1,20 @@
+[project]
+name = "cover_letters"
+version = "0.1.0"
+description = "Holding and editing cover letters."
+requires-python = ">=3.13"
+dependencies = ["aiogram-dialog>=2.4.0", "python-dotenv>=1.1.1"]
+
+[project.optional-dependencies]
+dev = ["isort", "flake8", "mypy", "pre-commit", "pipdeptree"]
+
+[tool.flake8]
+exclude = ["*env*/", "__pycache__"]
+
+[tool.isort]
+skip_glob = ["*env*/", "__pycache__"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+exclude = "^.*venv.*\\/$"
