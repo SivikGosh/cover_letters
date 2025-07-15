@@ -1,8 +1,9 @@
-from aiogram.filters.state import State, StatesGroup
+from aiogram.fsm.state import State, StatesGroup
 
 
 class Welcome(StatesGroup):  # type: ignore[misc]
-    state = State()
+    add_letter = State()
+    show_letter = State()
 
 
 class AddLetter(StatesGroup):  # type: ignore[misc]

@@ -9,11 +9,17 @@ from bot.routers import router
 
 
 async def main() -> None:
+
     basicConfig(level=DEBUG)
+
+    if TOKEN is None:
+        raise RuntimeError('Токен не установлен.')
     bot = Bot(TOKEN)
+
     dp = Dispatcher()
     dp.include_router(router)
     setup_dialogs(dp)
+
     await dp.start_polling(bot)
 
 

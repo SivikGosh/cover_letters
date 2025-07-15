@@ -5,7 +5,7 @@ from aiogram_dialog.widgets.kbd import Button, Next
 from aiogram_dialog.widgets.text import Const
 
 from bot.states import AddLetter
-from bot.utils.add_letter import approve, input_data
+from bot.utils.add_letter import approve, get_input_data
 from bot.utils.messages import letter
 
 title_window = Window(
@@ -24,14 +24,14 @@ approve_window = Window(
     letter(),
     Button(Const('Подтвердить'), 'approve', approve),
     state=AddLetter.approve,
-    getter=input_data,
+    getter=get_input_data,
     parse_mode=ParseMode.HTML,
 )
 
 result_window = Window(
     letter(),
     state=AddLetter.result,
-    getter=input_data,
+    getter=get_input_data,
     parse_mode=ParseMode.HTML,
 )
 

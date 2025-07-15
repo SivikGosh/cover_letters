@@ -1,4 +1,5 @@
 from sqlite3 import connect
+from typing import Optional, Tuple, cast
 
 
 def create_database(user_id: int) -> None:
@@ -15,7 +16,7 @@ def create_database(user_id: int) -> None:
         )
 
 
-def add_letter(user_id: str, title: str, text: str) -> None:
+def add_letter(user_id: int, title: str, text: str) -> None:
     with connect(f'{user_id}.db') as connection:
         cursor = connection.cursor()
         cursor.execute(
@@ -23,3 +24,13 @@ def add_letter(user_id: str, title: str, text: str) -> None:
             INSERT INTO letters ( title, text ) VALUES ( ?, ? );
             """, (title, text)
         )
+
+
+def get_letter(user_id: int) -> Optional[Tuple[int, str, str]]:
+    with connect(f'{user_id}.db') as connection:
+        cursor = connection.cursor()
+        query = cursor.execute("SELECT * FROM letters;")
+        letter = query.fetchone()
+        if letter is None:
+            return None
+        return cast(Tuple[int, str, str], letter)
