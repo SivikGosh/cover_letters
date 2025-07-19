@@ -34,3 +34,13 @@ def get_letter(user_id: int) -> Optional[Tuple[int, str, str]]:
         if letter is None:
             return None
         return cast(Tuple[int, str, str], letter)
+
+
+def update_letter(user_id: int, title: str, text: str) -> None:
+    with connect(f'{user_id}.db') as connection:
+        cursor = connection.cursor()
+        cursor.execute(
+            """
+            UPDATE letters SET title = ?, text = ?;
+            """, (title, text)
+        )

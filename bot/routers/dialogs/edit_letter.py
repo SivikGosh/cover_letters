@@ -4,29 +4,30 @@ from aiogram_dialog.widgets.input import TextInput
 from aiogram_dialog.widgets.kbd import Next
 from aiogram_dialog.widgets.text import Const
 
-from bot.states import AddLetter
-from bot.utils.add_letter import approve, get_input_data
+from bot.states import EditLetter
 from bot.utils.buttons import approve as approve_button
-from bot.utils.buttons import edit_letter
-from bot.utils.edit_letter import start
+from bot.utils.buttons import edit_letter, skip_step
+from bot.utils.edit_letter import approve, get_input_data, skip, start
 from bot.utils.messages import letter, letter_saved
 
 title_window = Window(
     Const('Введи заголовок:'),
     TextInput('title', on_success=Next()),
-    state=AddLetter.title,
+    skip_step(skip),
+    state=EditLetter.title,
 )
 
 text_window = Window(
     Const('Введи текст:'),
     TextInput('text', on_success=Next()),
-    state=AddLetter.text,
+    skip_step(skip),
+    state=EditLetter.text,
 )
 
 approve_window = Window(
     letter(),
     approve_button(approve),
-    state=AddLetter.approve,
+    state=EditLetter.approve,
     getter=get_input_data,
     parse_mode=ParseMode.HTML,
 )
@@ -35,7 +36,7 @@ result_window = Window(
     letter_saved(),
     letter(),
     edit_letter(start),
-    state=AddLetter.result,
+    state=EditLetter.result,
     getter=get_input_data,
     parse_mode=ParseMode.HTML,
 )

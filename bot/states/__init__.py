@@ -1,3 +1,3 @@
-__all__ = ('AddLetter', 'Welcome')
+__all__ = ('AddLetter', 'EditLetter', 'Welcome')
 
-from .states import AddLetter, Welcome
+from .states import AddLetter, EditLetter, Welcome

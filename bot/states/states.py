@@ -12,3 +12,11 @@ class AddLetter(StatesGroup):  # type: ignore[misc]
     alias = State()
     approve = State()
     result = State()
+
+
+class EditLetter(StatesGroup):  # type: ignore[misc]
+    title = State()
+    text = State()
+    alias = State()
+    approve = State()
+    result = State()
