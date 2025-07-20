@@ -20,3 +20,8 @@ class EditLetter(StatesGroup):  # type: ignore[misc]
     alias = State()
     approve = State()
     result = State()
+
+
+class DeleteLetter(StatesGroup):  # type: ignore[misc]
+    approve = State()
+    result = State()

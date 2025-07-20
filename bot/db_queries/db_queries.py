@@ -44,3 +44,13 @@ def update_letter(user_id: int, title: str, text: str) -> None:
             UPDATE letters SET title = ?, text = ?;
             """, (title, text)
         )
+
+
+def delete_letter(user_id: int, letter: str) -> None:
+    with connect(f'{user_id}.db') as connection:
+        cursor = connection.cursor()
+        cursor.execute(
+            """
+            DELETE FROM letters WHERE title = ?;
+            """, (letter)
+        )
