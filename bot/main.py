@@ -4,8 +4,8 @@ from logging import DEBUG, basicConfig
 from aiogram import Bot, Dispatcher
 from aiogram_dialog import setup_dialogs
 
-from bot.config import TOKEN
 from bot.routers import router
+from bot.settings import TOKEN
 
 
 async def main() -> None:

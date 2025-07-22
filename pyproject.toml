@@ -1,6 +1,13 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["bot"]
+
 [project]
 name = "cover_letters"
-version = "0.4.1"
+version = "1.0.0"
 description = "Holding and editing cover letters."
 requires-python = ">=3.13"
 dependencies = ["aiogram-dialog>=2.4.0", "python-dotenv>=1.1.1"]

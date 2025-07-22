@@ -36,6 +36,20 @@ Show dependency tree (only available with [dev] build):
 $ pipdeptree
 ```
 
+## Build
+
+Clone repo and enter into root folder:
+```bash
+$ git clone git@github.com:SivikGosh/cover_letters.git
+$ cd cover_letters/
+```
+
+Build Docker image and run container:
+```bash
+$ docker build --no-cache -t cover_letters .
+$ docker run -e TOKEN=${TOKEN} --name cover_letters -d cover_letters 
+```
+
 ---
 
 <img src='https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white'><img src='https://img.shields.io/badge/3.13-1a202c?style=flat-square'>
