@@ -52,5 +52,5 @@ def delete_letter(user_id: int, letter: str) -> None:
         cursor.execute(
             """
             DELETE FROM letters WHERE title = ?;
-            """, (letter)
+            """, (letter,)
         )
