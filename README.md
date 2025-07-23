@@ -11,72 +11,74 @@ Holding and editing cover letters in [Telegram](https://telegram.org/). Bot is a
 
 <br>
 
-## Develop Mode
-
-<br>
+## 🛠 Develop Mode
 
 ### Install and use
-
-#### Clone the repo and enter into the root folder:
+Clone the repo and enter into the root folder
 ```bash
 git clone git@github.com:SivikGosh/cover_letters.git
 cd cover_letters/
 ```
 
-#### Create an environment
+Create an environment
 ```bash
 python3.13 -m venv venv
 source venv/bin/activate
 ```
 
-#### Install dependencies
+Install dependencies
 ```bash
 pip3 install .[div]
 ```
 
-#### Add your bot token
+Add your bot token
 ```bash
 cp .env.example .env  # then open the .env file and replace value of TOKEN variable
 ```
 
-#### Start bot
+Start bot
 ```bash
 python3.13 -m bot.main
 ```
 
-<br>
+### Build
+
+Build a Docker image
+```bash
+docker build --no-cache -t cover_letters .
+```
+
+Run a container
+```bash
+docker run -e TOKEN='your_bot_token' --name cover_letters -d cover_letters
+```
 
 ### Some tools
 
-#### Pre-commit
+Pre-commit
 ```bash
 pre-commit install
 ```
 
-#### Dependencies tree
+Dependencies tree
 ```bash
 pipdeptree
 ```
 
 <br>
 
-### Build
-
-#### Build a Docker image
-```bash
-docker build --no-cache -t cover_letters .
-```
-
-#### Run a container
-```bash
-docker run -e TOKEN='your_bot_token' --name cover_letters -d cover_letters
-```
-
-<br>
-
-## Production Mode
+## 🚀 Production Mode
 
 ### Install and use
 ```bash
 docker run -e TOKEN='your_bot_token' --name cover_letters -d sivikgosh/cover_letters
 ```
+
+<br>
+
+<div align="right">
+
+## Author's contact
+<a href='https://t.me/sivikgosh' target='_blank'><img src='https://img.shields.io/badge/SivikGosh-white?style=flat-square&logo=Telegram&logoColor=26A5E4'></a>
+
+</div>
